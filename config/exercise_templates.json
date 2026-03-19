@@ -1,0 +1,110 @@
+[
+    {
+        "id": "tmpl_001",
+        "name": "Knee Flexion",
+        "joint": "left_knee",
+        "target_angle": 90,
+        "tolerance": 15,
+        "reps_target": 10,
+        "hold_seconds": 2,
+        "description": "Bend your left knee to 90 degrees. Keep your back straight.",
+        "instructions": [
+            "Stand upright with feet shoulder-width apart",
+            "Slowly bend your left knee upward",
+            "Hold at 90 degrees for 2 seconds",
+            "Lower your leg back down"
+        ],
+        "category": "knee",
+        "difficulty": "beginner"
+    },
+    {
+        "id": "tmpl_002",
+        "name": "Elbow Curl",
+        "joint": "right_elbow",
+        "target_angle": 45,
+        "tolerance": 10,
+        "reps_target": 12,
+        "hold_seconds": 1,
+        "description": "Curl your right elbow to 45 degrees. Strengthen your bicep.",
+        "instructions": [
+            "Stand with arm at your side",
+            "Keep your upper arm stationary",
+            "Curl your forearm upward to 45 degrees",
+            "Lower slowly"
+        ],
+        "category": "elbow",
+        "difficulty": "beginner"
+    },
+    {
+        "id": "tmpl_003",
+        "name": "Shoulder Abduction",
+        "joint": "right_shoulder",
+        "target_angle": 90,
+        "tolerance": 12,
+        "reps_target": 8,
+        "hold_seconds": 3,
+        "description": "Raise your right arm to shoulder height (90 degrees).",
+        "instructions": [
+            "Stand with arm at your side",
+            "Raise your arm outward (away from body)",
+            "Reach shoulder height (90 degrees)",
+            "Hold, then lower slowly"
+        ],
+        "category": "shoulder",
+        "difficulty": "intermediate"
+    },
+    {
+        "id": "tmpl_004",
+        "name": "Hip Flexion",
+        "joint": "left_hip",
+        "target_angle": 90,
+        "tolerance": 15,
+        "reps_target": 10,
+        "hold_seconds": 2,
+        "description": "Lift your left knee to hip level (90 degrees hip flexion).",
+        "instructions": [
+            "Stand upright holding a support",
+            "Slowly lift your left knee forward",
+            "Aim for 90 degrees at the hip",
+            "Hold and lower slowly"
+        ],
+        "category": "hip",
+        "difficulty": "intermediate"
+    },
+    {
+        "id": "tmpl_005",
+        "name": "Ankle Dorsiflexion",
+        "joint": "left_ankle",
+        "target_angle": 20,
+        "tolerance": 8,
+        "reps_target": 15,
+        "hold_seconds": 1,
+        "description": "Pull your left foot upward (toward the shin) 20 degrees.",
+        "instructions": [
+            "Sit in a chair or stand",
+            "Lift your foot off the ground",
+            "Pull your toes up toward your shin",
+            "Hold, then relax"
+        ],
+        "category": "ankle",
+        "difficulty": "beginner"
+    },
+    {
+        "id": "tmpl_006",
+        "name": "Full Knee Extension",
+        "joint": "right_knee",
+        "target_angle": 170,
+        "tolerance": 10,
+        "reps_target": 12,
+        "hold_seconds": 2,
+        "description": "Fully straighten your right knee to near full extension.",
+        "instructions": [
+            "Sit in a chair with knee bent",
+            "Slowly straighten your right leg",
+            "Aim for near-full extension (170 degrees)",
+            "Hold and return to starting position"
+        ],
+        "category": "knee",
+        "difficulty": "intermediate"
+    }
+]

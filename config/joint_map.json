@@ -1,0 +1,157 @@
+{
+  "joints": {
+    "left_elbow": {
+      "point_a": 11,
+      "vertex": 13,
+      "point_b": 15,
+      "label": "Left Elbow",
+      "body_side": "left",
+      "description": "Angle at left elbow (shoulder → elbow → wrist)"
+    },
+    "right_elbow": {
+      "point_a": 12,
+      "vertex": 14,
+      "point_b": 16,
+      "label": "Right Elbow",
+      "body_side": "right",
+      "description": "Angle at right elbow (shoulder → elbow → wrist)"
+    },
+    "left_shoulder": {
+      "point_a": 13,
+      "vertex": 11,
+      "point_b": 23,
+      "label": "Left Shoulder",
+      "body_side": "left",
+      "description": "Angle at left shoulder (elbow → shoulder → hip)"
+    },
+    "right_shoulder": {
+      "point_a": 14,
+      "vertex": 12,
+      "point_b": 24,
+      "label": "Right Shoulder",
+      "body_side": "right",
+      "description": "Angle at right shoulder (elbow → shoulder → hip)"
+    },
+    "left_hip": {
+      "point_a": 11,
+      "vertex": 23,
+      "point_b": 25,
+      "label": "Left Hip",
+      "body_side": "left",
+      "description": "Angle at left hip (shoulder → hip → knee)"
+    },
+    "right_hip": {
+      "point_a": 12,
+      "vertex": 24,
+      "point_b": 26,
+      "label": "Right Hip",
+      "body_side": "right",
+      "description": "Angle at right hip (shoulder → hip → knee)"
+    },
+    "left_knee": {
+      "point_a": 23,
+      "vertex": 25,
+      "point_b": 27,
+      "label": "Left Knee",
+      "body_side": "left",
+      "description": "Angle at left knee (hip → knee → ankle)"
+    },
+    "right_knee": {
+      "point_a": 24,
+      "vertex": 26,
+      "point_b": 28,
+      "label": "Right Knee",
+      "body_side": "right",
+      "description": "Angle at right knee (hip → knee → ankle)"
+    },
+    "left_ankle": {
+      "point_a": 25,
+      "vertex": 27,
+      "point_b": 31,
+      "label": "Left Ankle",
+      "body_side": "left",
+      "description": "Angle at left ankle (knee → ankle → foot)"
+    },
+    "right_ankle": {
+      "point_a": 26,
+      "vertex": 28,
+      "point_b": 32,
+      "label": "Right Ankle",
+      "body_side": "right",
+      "description": "Angle at right ankle (knee → ankle → foot)"
+    },
+    "left_wrist": {
+      "point_a": 13,
+      "vertex": 15,
+      "point_b": 17,
+      "label": "Left Wrist",
+      "body_side": "left",
+      "description": "Angle at left wrist (elbow → wrist → pinky)"
+    },
+    "right_wrist": {
+      "point_a": 14,
+      "vertex": 16,
+      "point_b": 18,
+      "label": "Right Wrist",
+      "body_side": "right",
+      "description": "Angle at right wrist (elbow → wrist → pinky)"
+    },
+    "neck": {
+      "derived": true,
+      "type": "midpoint",
+      "points": [11, 12],
+      "label": "Neck",
+      "description": "Midpoint of left and right shoulders"
+    },
+    "hip_center": {
+      "derived": true,
+      "type": "midpoint",
+      "points": [23, 24],
+      "label": "Hip Center",
+      "description": "Midpoint of left and right hips"
+    }
+  },
+  "landmark_names": {
+    "0": "nose",
+    "1": "left_eye_inner",
+    "2": "left_eye",
+    "3": "left_eye_outer",
+    "4": "right_eye_inner",
+    "5": "right_eye",
+    "6": "right_eye_outer",
+    "7": "left_ear",
+    "8": "right_ear",
+    "9": "mouth_left",
+    "10": "mouth_right",
+    "11": "left_shoulder",
+    "12": "right_shoulder",
+    "13": "left_elbow",
+    "14": "right_elbow",
+    "15": "left_wrist",
+    "16": "right_wrist",
+    "17": "left_pinky",
+    "18": "right_pinky",
+    "19": "left_index",
+    "20": "right_index",
+    "21": "left_thumb",
+    "22": "right_thumb",
+    "23": "left_hip",
+    "24": "right_hip",
+    "25": "left_knee",
+    "26": "right_knee",
+    "27": "left_ankle",
+    "28": "right_ankle",
+    "29": "left_heel",
+    "30": "right_heel",
+    "31": "left_foot_index",
+    "32": "right_foot_index"
+  },
+  "skeleton_connections": [
+    [11, 12], [11, 13], [13, 15], [12, 14], [14, 16],
+    [11, 23], [12, 24], [23, 24],
+    [23, 25], [25, 27], [27, 29], [27, 31],
+    [24, 26], [26, 28], [28, 30], [28, 32],
+    [15, 17], [15, 19], [15, 21],
+    [16, 18], [16, 20], [16, 22]
+  ]
+}
