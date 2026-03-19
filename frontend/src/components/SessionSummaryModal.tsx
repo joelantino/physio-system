@@ -39,7 +39,7 @@ const SessionSummaryModal: React.FC<Props> = ({ summary, onClose }) => {
                 </div>
 
                 {/* Stats Grid */}
-                <div className="grid-4" style={{ marginBottom: '1.5rem' }}>
+                <div className="grid-3" style={{ marginBottom: '1.5rem' }}>
                     <div className="stat-card">
                         <div className="stat-label">Repetitions</div>
                         <div className="stat-value green">{summary.total_reps}</div>
@@ -54,11 +54,6 @@ const SessionSummaryModal: React.FC<Props> = ({ summary, onClose }) => {
                         <div className="stat-label">Max Angle</div>
                         <div className="stat-value orange">{summary.max_angle?.toFixed(1) ?? '--'}°</div>
                         <div className="stat-sub">range of motion</div>
-                    </div>
-                    <div className="stat-card">
-                        <div className="stat-label">Accuracy</div>
-                        <div className="stat-value purple">{summary.perfect_percentage}%</div>
-                        <div className="stat-sub">time in target zone</div>
                     </div>
                 </div>
 

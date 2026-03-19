@@ -214,36 +214,30 @@ const UserView: React.FC = () => {
 
                         {/* Session Stats */}
                         {session && (
-                            <div className="grid-2" style={{ marginBottom: '1rem', gap: '0.75rem' }}>
-                                <div className="stat-card" style={{ padding: '0.875rem' }}>
-                                    <div className="stat-label">Reps</div>
-                                    <div className="stat-value green" style={{ fontSize: '2.2rem' }}>{session.reps}</div>
-                                    <div className="stat-sub">repetitions</div>
-                                </div>
-                                <div className="stat-card" style={{ padding: '0.875rem' }}>
-                                    <div className="stat-label">Elapsed</div>
-                                    <div className="stat-value blue" style={{ fontSize: '2.2rem' }}>
-                                        {formatTime(session.elapsed_seconds)}
+                            <div className="grid-1" style={{ marginBottom: '1rem', gap: '0.75rem' }}>
+                                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem' }}>
+                                    <div className="stat-card" style={{ padding: '0.875rem' }}>
+                                        <div className="stat-label">Reps</div>
+                                        <div className="stat-value green" style={{ fontSize: '2.2rem' }}>{session.reps}</div>
+                                        <div className="stat-sub">repetitions</div>
                                     </div>
-                                    <div className="stat-sub">mm:ss</div>
+                                    <div className="stat-card" style={{ padding: '0.875rem' }}>
+                                        <div className="stat-label">Elapsed</div>
+                                        <div className="stat-value blue" style={{ fontSize: '2.2rem' }}>
+                                            {formatTime(session.elapsed_seconds)}
+                                        </div>
+                                        <div className="stat-sub">mm:ss</div>
+                                    </div>
                                 </div>
                                 <div className="stat-card" style={{ padding: '0.875rem' }}>
                                     <div className="stat-label">Hold Time</div>
                                     <div className="stat-value orange" style={{ fontSize: '2.2rem' }}>
                                         {session.total_hold_time.toFixed(0)}s
                                     </div>
-                                    <div className="stat-sub">in target zone</div>
-                                </div>
-                                <div className="stat-card" style={{ padding: '0.875rem' }}>
-                                    <div className="stat-label">Accuracy</div>
-                                    <div className="stat-value purple" style={{ fontSize: '2.2rem' }}>
-                                        {session.perfect_percentage.toFixed(0)}%
-                                    </div>
-                                    <div className="stat-sub">perfect frames</div>
+                                    <div className="stat-sub">total time in target zone</div>
                                 </div>
                             </div>
                         )}
-
                         {/* Start/Stop Button */}
                         {!sessionActive ? (
                             <button

@@ -61,7 +61,6 @@ const SessionHistory: React.FC = () => {
                                 <th>Reps</th>
                                 <th>Avg Angle</th>
                                 <th>Max Angle</th>
-                                <th>Accuracy</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -85,28 +84,6 @@ const SessionHistory: React.FC = () => {
                                     </td>
                                     <td style={{ fontFamily: 'JetBrains Mono', color: 'var(--accent-orange)' }}>
                                         {s.max_angle != null ? `${Number(s.max_angle).toFixed(1)}°` : '--'}
-                                    </td>
-                                    <td>
-                                        <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                                            <div style={{
-                                                height: 6, width: 60, background: 'rgba(255,255,255,0.08)',
-                                                borderRadius: 3, overflow: 'hidden'
-                                            }}>
-                                                <div style={{
-                                                    height: '100%',
-                                                    width: `${s.perfect_percentage ?? 0}%`,
-                                                    background: (s.perfect_percentage ?? 0) > 70
-                                                        ? 'var(--accent-green)'
-                                                        : (s.perfect_percentage ?? 0) > 40
-                                                            ? 'var(--accent-orange)'
-                                                            : 'var(--accent-red)',
-                                                    borderRadius: 3
-                                                }} />
-                                            </div>
-                                            <span style={{ fontSize: '0.8rem', fontFamily: 'JetBrains Mono' }}>
-                                                {s.perfect_percentage ?? 0}%
-                                            </span>
-                                        </div>
                                     </td>
                                 </tr>
                             ))}
