@@ -145,6 +145,9 @@ Webcam → OpenCV → MediaPipe Holistic → 33 Landmarks (x,y,z)
 | Left/Right Knee | Hip → Knee → Ankle |
 | Left/Right Ankle | Knee → Ankle → Foot |
 | Left/Right Wrist | Elbow → Wrist → Pinky |
+| **Neck/Head Tilt** | Nose → Neck Midpoint → Hip Midpoint |
+| **Neck Midpoint** | (Derived) Midpoint of Shoulders |
+| **Hip Midpoint** | (Derived) Midpoint of Hips |
 
 ---
 
