@@ -4,6 +4,13 @@ A production-level, modular, real-time physiotherapy system using **MediaPipe Ho
 
 ---
 
+## ✨ Latest Enhancements
+- **On-Screen Telemetry**: The exact live joint angle is now rendered directly onto the video feed via OpenCV.
+- **Dynamic Feedback Banners**: Corrective instructions ("Increase movement", "Reduce movement", "Perfect!") project directly onto the camera feed in color-coded overlays (Red, Orange, Green).
+- **Precision Rep Counting Engine**: The underlying state machine has been upgraded to accurately measure strict repetitions based on fully entering, holding, and exiting the target tolerance zone.
+
+---
+
 ## 🚀 Quick Start
 
 ### Prerequisites
