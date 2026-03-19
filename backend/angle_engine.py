@@ -172,7 +172,16 @@ def compute_derived_joints(
                         sum(landmarks[p][axis] for p in points) / len(points), 6
                     )
                 # Store visibility as the average of its components
-                coords["visibility"] = sum(landmarks[p].get("visibility", 1.0) for p in points) / len(points)
+                avg_vis = sum(landmarks[p].get("visibility", 1.0) for p in points) / len(points)
+                
+                # Fallback logic for hip_center if it's off-screen
+                if joint_name == "hip_center" and avg_vis < 0.1 and result.get("neck"):
+                    coords["x"] = result["neck"]["x"]
+                    coords["y"] = result["neck"]["y"] + 0.5  # straight down vertically
+                    coords["z"] = result["neck"]["z"]
+                    avg_vis = 1.0  # Force it to be visible so the angle engine accepts it
+                    
+                coords["visibility"] = avg_vis
                 result[joint_name] = coords
             else:
                 result[joint_name] = None
