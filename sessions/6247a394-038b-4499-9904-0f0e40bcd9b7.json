@@ -1,0 +1,1100 @@
+{
+  "session_id": "6247a394-038b-4499-9904-0f0e40bcd9b7",
+  "exercise_name": "Seated Arm Curl",
+  "joint": "left_elbow",
+  "target_angle": 90.0,
+  "tolerance": 20.0,
+  "start_time": 1773900518.8690531,
+  "end_time": 1773900563.496776,
+  "duration_seconds": 44.63,
+  "total_reps": 0,
+  "max_angle": 179.02,
+  "min_angle": 4.07,
+  "avg_angle": 152.32,
+  "perfect_percentage": 0.0,
+  "angle_history": [
+    {
+      "timestamp": 1773900518.969137,
+      "angle": 176.29,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900519.1592762,
+      "angle": 175.95,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900519.3749971,
+      "angle": 177.46,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900519.563814,
+      "angle": 174.39,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900519.7560048,
+      "angle": 175.7,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900519.9567788,
+      "angle": 176.84,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900520.1570587,
+      "angle": 170.77,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900520.3595452,
+      "angle": 176.38,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900520.5575025,
+      "angle": 175.65,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900520.7645855,
+      "angle": 173.42,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900520.9637642,
+      "angle": 173.92,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900521.1743605,
+      "angle": 178.79,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900521.363228,
+      "angle": 164.32,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900521.5690992,
+      "angle": 125.16,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900521.7592943,
+      "angle": 31.15,
+      "feedback_status": "increase"
+    },
+    {
+      "timestamp": 1773900521.9589236,
+      "angle": 22.38,
+      "feedback_status": "increase"
+    },
+    {
+      "timestamp": 1773900522.1636875,
+      "angle": 21.77,
+      "feedback_status": "increase"
+    },
+    {
+      "timestamp": 1773900522.3570373,
+      "angle": 16.54,
+      "feedback_status": "increase"
+    },
+    {
+      "timestamp": 1773900522.5563576,
+      "angle": 153.94,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900522.7590566,
+      "angle": 163.55,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900522.9592018,
+      "angle": 137.52,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900523.1622365,
+      "angle": 46.68,
+      "feedback_status": "increase"
+    },
+    {
+      "timestamp": 1773900523.3609278,
+      "angle": 36.81,
+      "feedback_status": "increase"
+    },
+    {
+      "timestamp": 1773900523.5573199,
+      "angle": 6.91,
+      "feedback_status": "increase"
+    },
+    {
+      "timestamp": 1773900523.7718031,
+      "angle": 4.81,
+      "feedback_status": "increase"
+    },
+    {
+      "timestamp": 1773900523.9559424,
+      "angle": 4.98,
+      "feedback_status": "increase"
+    },
+    {
+      "timestamp": 1773900524.1598198,
+      "angle": 5.01,
+      "feedback_status": "increase"
+    },
+    {
+      "timestamp": 1773900524.3574307,
+      "angle": 4.77,
+      "feedback_status": "increase"
+    },
+    {
+      "timestamp": 1773900524.5587742,
+      "angle": 4.73,
+      "feedback_status": "increase"
+    },
+    {
+      "timestamp": 1773900524.7703288,
+      "angle": 4.91,
+      "feedback_status": "increase"
+    },
+    {
+      "timestamp": 1773900524.958485,
+      "angle": 4.92,
+      "feedback_status": "increase"
+    },
+    {
+      "timestamp": 1773900525.1657953,
+      "angle": 4.07,
+      "feedback_status": "increase"
+    },
+    {
+      "timestamp": 1773900525.355936,
+      "angle": 4.53,
+      "feedback_status": "increase"
+    },
+    {
+      "timestamp": 1773900525.5573804,
+      "angle": 4.69,
+      "feedback_status": "increase"
+    },
+    {
+      "timestamp": 1773900525.7574475,
+      "angle": 6.78,
+      "feedback_status": "increase"
+    },
+    {
+      "timestamp": 1773900525.961014,
+      "angle": 21.41,
+      "feedback_status": "increase"
+    },
+    {
+      "timestamp": 1773900526.16382,
+      "angle": 163.38,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900526.3604023,
+      "angle": 167.47,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900526.5606449,
+      "angle": 160.91,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900526.7587316,
+      "angle": 158.54,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900526.9678068,
+      "angle": 165.04,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900527.162198,
+      "angle": 165.26,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900527.3625429,
+      "angle": 169.25,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900527.566847,
+      "angle": 173.12,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900527.7593899,
+      "angle": 174.15,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900527.9694026,
+      "angle": 170.2,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900528.1631474,
+      "angle": 169.82,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900528.3635836,
+      "angle": 168.66,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900528.5596929,
+      "angle": 168.35,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900528.7640152,
+      "angle": 168.76,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900528.9578018,
+      "angle": 168.02,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900529.1576905,
+      "angle": 167.98,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900529.3562846,
+      "angle": 168.9,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900529.557587,
+      "angle": 169.18,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900529.7591245,
+      "angle": 168.33,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900529.9593408,
+      "angle": 168.23,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900530.1586897,
+      "angle": 168.24,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900530.3605976,
+      "angle": 167.66,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900530.5614944,
+      "angle": 168.06,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900530.7592635,
+      "angle": 168.55,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900530.9594285,
+      "angle": 169.01,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900531.1606123,
+      "angle": 169.52,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900531.3595903,
+      "angle": 169.47,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900531.556441,
+      "angle": 169.47,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900531.7581632,
+      "angle": 169.79,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900531.9624302,
+      "angle": 169.99,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900532.1676605,
+      "angle": 170.1,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900532.43052,
+      "angle": 170.1,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900532.5587363,
+      "angle": 170.3,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900532.7604265,
+      "angle": 170.76,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900532.9584198,
+      "angle": 170.42,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900533.1574702,
+      "angle": 170.4,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900533.3662858,
+      "angle": 171.04,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900533.557657,
+      "angle": 171.07,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900533.7580156,
+      "angle": 170.91,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900533.9572804,
+      "angle": 170.54,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900534.1584554,
+      "angle": 170.4,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900534.3683825,
+      "angle": 169.88,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900534.5616546,
+      "angle": 170.0,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900534.7719347,
+      "angle": 169.76,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900534.9578195,
+      "angle": 169.93,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900535.1559088,
+      "angle": 169.21,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900535.3598583,
+      "angle": 168.84,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900535.562828,
+      "angle": 169.35,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900535.7571561,
+      "angle": 169.41,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900535.9596255,
+      "angle": 169.37,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900536.1624994,
+      "angle": 169.37,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900536.3618457,
+      "angle": 169.28,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900536.5579154,
+      "angle": 169.08,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900536.7580988,
+      "angle": 169.07,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900536.9587,
+      "angle": 168.98,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900537.16402,
+      "angle": 168.98,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900537.361264,
+      "angle": 169.67,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900537.557334,
+      "angle": 169.71,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900537.7642767,
+      "angle": 169.07,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900537.9689355,
+      "angle": 169.01,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900538.163342,
+      "angle": 168.81,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900538.3591883,
+      "angle": 168.89,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900538.560633,
+      "angle": 168.86,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900538.7634206,
+      "angle": 168.65,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900539.0526009,
+      "angle": 169.04,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900539.179826,
+      "angle": 168.49,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900539.357295,
+      "angle": 164.38,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900539.5592752,
+      "angle": 162.52,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900539.764758,
+      "angle": 161.0,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900539.9576435,
+      "angle": 158.78,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900540.159429,
+      "angle": 156.67,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900540.3583038,
+      "angle": 151.21,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900540.5599043,
+      "angle": 148.43,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900540.7584953,
+      "angle": 150.17,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900540.9630497,
+      "angle": 150.87,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900541.1594281,
+      "angle": 155.09,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900541.3609092,
+      "angle": 159.2,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900541.5575185,
+      "angle": 160.15,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900541.7632995,
+      "angle": 158.92,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900541.969939,
+      "angle": 158.1,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900542.164102,
+      "angle": 152.25,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900542.356488,
+      "angle": 116.47,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900542.5592132,
+      "angle": 117.75,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900542.7604449,
+      "angle": 137.21,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900542.9603324,
+      "angle": 146.61,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900543.1593242,
+      "angle": 149.61,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900543.354541,
+      "angle": 151.12,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900543.557509,
+      "angle": 152.0,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900543.7601724,
+      "angle": 151.91,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900543.9597208,
+      "angle": 152.19,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900544.1590674,
+      "angle": 151.94,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900544.362123,
+      "angle": 152.63,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900544.55695,
+      "angle": 152.68,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900544.7616658,
+      "angle": 152.98,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900544.958002,
+      "angle": 152.32,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900545.1570635,
+      "angle": 129.59,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900545.3608987,
+      "angle": 21.9,
+      "feedback_status": "increase"
+    },
+    {
+      "timestamp": 1773900545.5596123,
+      "angle": 128.41,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900545.8037467,
+      "angle": 172.8,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900545.957945,
+      "angle": 145.86,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900546.159431,
+      "angle": 152.71,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900546.3631098,
+      "angle": 179.02,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900546.560574,
+      "angle": 169.39,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900546.7583408,
+      "angle": 169.39,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900546.961878,
+      "angle": 170.97,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900547.1624207,
+      "angle": 166.85,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900547.3600843,
+      "angle": 166.12,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900547.5588064,
+      "angle": 169.53,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900547.7592735,
+      "angle": 166.13,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900547.9594257,
+      "angle": 172.71,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900548.162775,
+      "angle": 170.65,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900548.377204,
+      "angle": 172.57,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900548.561824,
+      "angle": 172.77,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900548.7623653,
+      "angle": 168.71,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900548.9584625,
+      "angle": 168.25,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900549.1609342,
+      "angle": 174.09,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900549.362577,
+      "angle": 176.83,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900549.557632,
+      "angle": 174.94,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900549.762032,
+      "angle": 174.94,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900549.9571025,
+      "angle": 173.25,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900550.164196,
+      "angle": 175.24,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900550.3586757,
+      "angle": 176.61,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900550.5626585,
+      "angle": 175.38,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900550.7637331,
+      "angle": 174.29,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900550.9599864,
+      "angle": 174.06,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900551.1621299,
+      "angle": 174.96,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900551.362827,
+      "angle": 174.21,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900551.5702937,
+      "angle": 173.91,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900551.7629983,
+      "angle": 173.27,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900551.9630387,
+      "angle": 173.41,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900552.162848,
+      "angle": 172.01,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900552.3578148,
+      "angle": 170.59,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900552.5581934,
+      "angle": 171.51,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900552.8970034,
+      "angle": 172.07,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900553.0181034,
+      "angle": 171.82,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900553.162237,
+      "angle": 171.54,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900553.3594582,
+      "angle": 171.09,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900553.5621066,
+      "angle": 170.6,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900553.7634518,
+      "angle": 170.49,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900553.9587789,
+      "angle": 169.89,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900554.1562283,
+      "angle": 168.97,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900554.3563676,
+      "angle": 168.91,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900554.558915,
+      "angle": 168.4,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900554.7589736,
+      "angle": 168.11,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900554.9578724,
+      "angle": 167.73,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900555.1725497,
+      "angle": 167.85,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900555.3604274,
+      "angle": 168.29,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900555.5574684,
+      "angle": 168.22,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900555.7625334,
+      "angle": 168.4,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900555.962424,
+      "angle": 171.92,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900556.1621113,
+      "angle": 169.98,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900556.3572524,
+      "angle": 170.79,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900556.5594795,
+      "angle": 170.48,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900556.7581034,
+      "angle": 172.67,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900556.9625106,
+      "angle": 173.45,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900557.1663065,
+      "angle": 170.86,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900557.3624902,
+      "angle": 163.59,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900557.560715,
+      "angle": 171.05,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900557.7600834,
+      "angle": 166.88,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900557.9618008,
+      "angle": 169.5,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900558.1598394,
+      "angle": 167.64,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900558.3684251,
+      "angle": 172.92,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900558.5581152,
+      "angle": 173.51,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900558.7577152,
+      "angle": 159.99,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900558.9608705,
+      "angle": 163.31,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900559.1629214,
+      "angle": 163.73,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900559.3605456,
+      "angle": 165.59,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900559.5675018,
+      "angle": 165.24,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900559.8315146,
+      "angle": 165.24,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900559.97566,
+      "angle": 161.59,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900560.1586955,
+      "angle": 167.07,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900560.3634694,
+      "angle": 170.72,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900560.5575788,
+      "angle": 177.61,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900560.7579432,
+      "angle": 178.07,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900560.9605207,
+      "angle": 178.77,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900561.1575723,
+      "angle": 175.26,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900561.3557744,
+      "angle": 175.55,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900561.5566113,
+      "angle": 175.64,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900561.7577167,
+      "angle": 174.89,
+      "feedback_status": "decrease"
+    },
+    {
+      "timestamp": 1773900561.9674826,
+      "angle": 174.89,
+      "feedback_status": "decrease"
+    }
+  ],
+  "completed": true,
+  "start_time_iso": "2026-03-19T11:38:38",
+  "end_time_iso": "2026-03-19T11:39:23"
+}

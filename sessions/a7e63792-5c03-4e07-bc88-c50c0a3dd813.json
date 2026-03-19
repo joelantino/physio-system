@@ -1,0 +1,19 @@
+{
+  "session_id": "a7e63792-5c03-4e07-bc88-c50c0a3dd813",
+  "exercise_name": "Knee Flexion",
+  "joint": "left_knee",
+  "target_angle": 90,
+  "tolerance": 15,
+  "start_time": 1773898542.1137633,
+  "end_time": 1773898544.2666001,
+  "duration_seconds": 2.15,
+  "total_reps": 0,
+  "max_angle": null,
+  "min_angle": null,
+  "avg_angle": null,
+  "perfect_percentage": 0.0,
+  "angle_history": [],
+  "completed": true,
+  "start_time_iso": "2026-03-19T11:05:42",
+  "end_time_iso": "2026-03-19T11:05:44"
+}

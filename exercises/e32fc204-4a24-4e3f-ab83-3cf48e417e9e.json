@@ -1,0 +1,10 @@
+{
+  "id": "e32fc204-4a24-4e3f-ab83-3cf48e417e9e",
+  "name": "Seated Arm Curl",
+  "joint": "left_elbow",
+  "target_angle": 90.0,
+  "tolerance": 20.0,
+  "reps_target": 6,
+  "hold_seconds": 2.0,
+  "description": ""
+}
