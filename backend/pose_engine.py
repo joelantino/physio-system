@@ -153,13 +153,15 @@ class PoseEngine:
                     time.sleep(0.05)
                     continue
 
-                # Flip for mirror effect
-                frame = cv2.flip(frame, 1)
+                # 1. Process RAW frame for correct AI Left/Right detection
                 rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
                 rgb.flags.writeable = False
                 results = holistic.process(rgb)
                 rgb.flags.writeable = True
-                annotated = cv2.cvtColor(rgb, cv2.COLOR_RGB2BGR)
+
+                # 2. Mirror the frame for the user's mirror display effect
+                frame = cv2.flip(frame, 1)
+                annotated = frame.copy()
 
                 # Extract landmarks
                 landmarks = {}
@@ -168,15 +170,24 @@ class PoseEngine:
                 if results.pose_landmarks:
                     detection_active = True
                     h, w = frame.shape[:2]
+                    
+                    # Create a copy of landmarks for mirrored display drawing
                     for idx, lm in enumerate(results.pose_landmarks.landmark):
+                        # Landmarks object is used for math (raw coords)
                         landmarks[idx] = {
                             'x': lm.x,
                             'y': lm.y,
                             'z': lm.z,
                             'visibility': lm.visibility,
-                            'x_px': int(lm.x * w),
+                            # For drawing on the MIRRORED frame, we must flip the X pixel
+                            'x_px': int((1.0 - lm.x) * w),
                             'y_px': int(lm.y * h)
                         }
+
+                    # To use MediaPipe's built-in drawing on a flipped frame, 
+                    # we must briefly flip the results object's relative X too.
+                    for lm in results.pose_landmarks.landmark:
+                        lm.x = 1.0 - lm.x
 
                     # Draw standard pose skeleton
                     mp_drawing.draw_landmarks(
@@ -186,6 +197,10 @@ class PoseEngine:
                         landmark_drawing_spec=LANDMARK_STYLE,
                         connection_drawing_spec=CONNECTION_STYLE
                     )
+                    
+                    # Restore raw X coords in results object for consistency if needed
+                    for lm in results.pose_landmarks.landmark:
+                        lm.x = 1.0 - lm.x
 
                     # Draw highlighted joints (feedback)
                     with self._lock:
@@ -195,10 +210,10 @@ class PoseEngine:
 
                     for i, idx in enumerate(highlight_joints):
                         if idx in landmarks:
+                            # Use the already-mirrored x_px
                             cx, cy = landmarks[idx]['x_px'], landmarks[idx]['y_px']
                             cv2.circle(annotated, (cx, cy), 12, highlight_color, -1)
                             cv2.circle(annotated, (cx, cy), 14, (255, 255, 255), 2)
-                            # Draw label precisely on the vertex (the middle joint of the 3)
                             if highlight_label and i == 1:
                                 cv2.putText(
                                     annotated, highlight_label, (cx + 20, cy - 20),
