@@ -42,7 +42,6 @@ class SessionSummary:
     max_angle: Optional[float]
     min_angle: Optional[float]
     avg_angle: Optional[float]
-    perfect_percentage: float
     angle_history: List[AngleRecord]
     completed: bool
 
@@ -79,9 +78,7 @@ class SessionManager:
         self._reps: int = 0
         self._hold_start: Optional[float] = None
         self._total_hold_time: float = 0.0
-        self._perfect_frames: int = 0
-        self._total_frames: int = 0
-
+        
         # Rep detection state machine
         # A rep: goes OUT of target, then BACK IN (or vice versa, depending on exercise)
         self._in_target_zone: bool = False
@@ -105,8 +102,6 @@ class SessionManager:
         self._reps = 0
         self._hold_start = None
         self._total_hold_time = 0.0
-        self._perfect_frames = 0
-        self._total_frames = 0
         self._in_target_zone = False
         self._went_below_target = False
         self._went_above_target = False
@@ -134,11 +129,7 @@ class SessionManager:
         max_angle = round(max(angles), 2) if angles else None
         min_angle = round(min(angles), 2) if angles else None
         avg_angle = round(sum(angles) / len(angles), 2) if angles else None
-        perfect_pct = (
-            round(self._perfect_frames / self._total_frames * 100, 1)
-            if self._total_frames > 0 else 0.0
-        )
-
+        
         summary = SessionSummary(
             session_id=self._session_id,
             exercise_name=self._config.name,
@@ -152,7 +143,6 @@ class SessionManager:
             max_angle=max_angle,
             min_angle=min_angle,
             avg_angle=avg_angle,
-            perfect_percentage=perfect_pct,
             angle_history=list(self._angle_history),
             completed=True
         )
@@ -174,24 +164,17 @@ class SessionManager:
     def update(
         self,
         angle: Optional[float],
-        feedback_status: FeedbackStatus
+        feedback_status: FeedbackStatus,
+        severity: str = "error"
     ) -> dict:
         """
         Record a single frame's angle and feedback status.
-        Updates rep count, hold time tracking.
-        
-        Args:
-            angle: Current measured angle (None if not detected)
-            feedback_status: Current feedback enum
-        
-        Returns:
-            Dict with current session state
+        Updates rep count and hold time.
         """
         if not self._active or not self._config:
             return self._state_dict()
 
         now = time.time()
-        self._total_frames += 1
 
         if angle is not None:
             # Record angle
@@ -201,14 +184,11 @@ class SessionManager:
                 feedback_status=feedback_status.value
             ))
 
-            # Track perfect frames
+            # Hold time tracking
             if feedback_status == FeedbackStatus.PERFECT:
-                self._perfect_frames += 1
-                # Hold time tracking
                 if self._hold_start is None:
                     self._hold_start = now
             else:
-                # Left target zone — end hold
                 if self._hold_start is not None:
                     self._total_hold_time += now - self._hold_start
                     self._hold_start = None
@@ -262,12 +242,7 @@ class SessionManager:
             "session_id": self._session_id,
             "reps": self._reps,
             "elapsed_seconds": round(elapsed, 1),
-            "total_hold_time": round(hold_time, 1),
-            "perfect_frames": self._perfect_frames,
-            "total_frames": self._total_frames,
-            "perfect_percentage": round(
-                self._perfect_frames / self._total_frames * 100, 1
-            ) if self._total_frames > 0 else 0.0
+            "total_hold_time": round(hold_time, 1)
         }
 
     def get_state(self) -> dict:
@@ -311,8 +286,7 @@ class SessionManager:
                     "total_reps": data.get("total_reps"),
                     "avg_angle": data.get("avg_angle"),
                     "duration_seconds": data.get("duration_seconds"),
-                    "start_time_iso": data.get("start_time_iso"),
-                    "perfect_percentage": data.get("perfect_percentage")
+                    "start_time_iso": data.get("start_time_iso")
                 })
             except Exception:
                 continue
