@@ -81,38 +81,31 @@ def get_3d_angle(a: np.ndarray, b: np.ndarray, c: np.ndarray) -> float:
 
 def compute_joint_angle(
     joint_name: str,
-    landmarks: Dict[int, Dict[str, float]],
+    landmarks: Dict,
     use_3d: bool = False
 ) -> Optional[float]:
     """
     Compute angle for a named joint given landmark data.
-    
-    Args:
-        joint_name: Key in joint_map.json (e.g., 'left_knee')
-        landmarks: Dict {idx: {x, y, z, visibility}} from PoseEngine
-        use_3d: Whether to use Z coordinates
-    
-    Returns:
-        Angle in degrees, or None if landmarks unavailable
+    Works with both standard (int) and derived (str) landmark keys.
     """
     if joint_name not in JOINTS:
         return None
 
     joint = JOINTS[joint_name]
 
-    # Skip derived joints (they don't have angle computation)
-    if joint.get("derived"):
+    # Use coordinates defined in joint map
+    if not all(k in joint for k in ["point_a", "vertex", "point_b"]):
         return None
 
     idx_a = joint["point_a"]
     idx_v = joint["vertex"]
     idx_b = joint["point_b"]
 
-    # Ensure all three landmarks are present
+    # Ensure all three landmarks are present in the provided pool
     if not all(k in landmarks for k in [idx_a, idx_v, idx_b]):
         return None
 
-    # Check visibility threshold
+    # Check visibility threshold (virtual/string joints default to 1.0)
     visibility_threshold = 0.1
     for idx in [idx_a, idx_v, idx_b]:
         if landmarks[idx].get("visibility", 1.0) < visibility_threshold:
@@ -139,14 +132,21 @@ def compute_all_angles(
     use_3d: bool = False
 ) -> Dict[str, Optional[float]]:
     """
-    Compute angles for all joints defined in joint_map.json.
-    
-    Returns:
-        Dict mapping joint name → angle (or None if unavailable)
+    Compute angles for all matching joints. Supports pooling standard
+    and derived joints.
     """
+    # 1. Compute derived midpoint coordinates
+    derived = compute_derived_joints(landmarks)
+    
+    # 2. Build combined lookup pool (Integers + String names)
+    pool = {**landmarks}
+    for name, coords in derived.items():
+        if coords:
+            pool[name] = coords
+            
     result = {}
     for joint_name in JOINTS:
-        angle = compute_joint_angle(joint_name, landmarks, use_3d)
+        angle = compute_joint_angle(joint_name, pool, use_3d)
         result[joint_name] = angle
     return result
 
@@ -156,14 +156,13 @@ def compute_derived_joints(
 ) -> Dict[str, Optional[Dict[str, float]]]:
     """
     Compute derived joint positions (neck, hip_center as midpoints).
-    
-    Returns:
-        Dict mapping derived joint name → {x, y, z} coordinates
     """
     result = {}
     for joint_name, joint_def in JOINTS.items():
-        if not joint_def.get("derived"):
+        # Only compute coordinates for derived joints that aren't angles themselves
+        if not joint_def.get("derived") or "point_a" in joint_def:
             continue
+            
         if joint_def.get("type") == "midpoint":
             points = joint_def["points"]
             if all(p in landmarks for p in points):
@@ -172,6 +171,8 @@ def compute_derived_joints(
                     coords[axis] = round(
                         sum(landmarks[p][axis] for p in points) / len(points), 6
                     )
+                # Store visibility as the average of its components
+                coords["visibility"] = sum(landmarks[p].get("visibility", 1.0) for p in points) / len(points)
                 result[joint_name] = coords
             else:
                 result[joint_name] = None
@@ -194,5 +195,5 @@ def get_angle_for_joint(
 
 
 def get_all_joint_names() -> list:
-    """Return all non-derived joint names."""
-    return [name for name, j in JOINTS.items() if not j.get("derived")]
+    """Return all joint names that can be computed as an angle (have 3 points)."""
+    return [name for name, j in JOINTS.items() if "point_a" in j]

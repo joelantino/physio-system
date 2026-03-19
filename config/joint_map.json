@@ -99,16 +99,30 @@
     "neck": {
       "derived": true,
       "type": "midpoint",
-      "points": [11, 12],
+      "points": [
+        11,
+        12
+      ],
       "label": "Neck",
       "description": "Midpoint of left and right shoulders"
     },
     "hip_center": {
       "derived": true,
       "type": "midpoint",
-      "points": [23, 24],
+      "points": [
+        23,
+        24
+      ],
       "label": "Hip Center",
       "description": "Midpoint of left and right hips"
+    },
+    "neck_tilt": {
+      "point_a": 0,
+      "vertex": "neck",
+      "point_b": "hip_center",
+      "label": "Neck Tilt",
+      "derived": true,
+      "description": "Head/Neck tilt (Nose -> Neck Midpoint -> Hip Center)"
     }
   },
   "landmark_names": {
@@ -147,11 +161,93 @@
     "32": "right_foot_index"
   },
   "skeleton_connections": [
-    [11, 12], [11, 13], [13, 15], [12, 14], [14, 16],
-    [11, 23], [12, 24], [23, 24],
-    [23, 25], [25, 27], [27, 29], [27, 31],
-    [24, 26], [26, 28], [28, 30], [28, 32],
-    [15, 17], [15, 19], [15, 21],
-    [16, 18], [16, 20], [16, 22]
+    [
+      11,
+      12
+    ],
+    [
+      11,
+      13
+    ],
+    [
+      13,
+      15
+    ],
+    [
+      12,
+      14
+    ],
+    [
+      14,
+      16
+    ],
+    [
+      11,
+      23
+    ],
+    [
+      12,
+      24
+    ],
+    [
+      23,
+      24
+    ],
+    [
+      23,
+      25
+    ],
+    [
+      25,
+      27
+    ],
+    [
+      27,
+      29
+    ],
+    [
+      27,
+      31
+    ],
+    [
+      24,
+      26
+    ],
+    [
+      26,
+      28
+    ],
+    [
+      28,
+      30
+    ],
+    [
+      28,
+      32
+    ],
+    [
+      15,
+      17
+    ],
+    [
+      15,
+      19
+    ],
+    [
+      15,
+      21
+    ],
+    [
+      16,
+      18
+    ],
+    [
+      16,
+      20
+    ],
+    [
+      16,
+      22
+    ]
   ]
 }
