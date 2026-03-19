@@ -233,22 +233,36 @@ class SessionManager:
         below = angle < lower
         above = angle > upper
 
-        if in_zone and not self._in_target_zone:
-            # Just entered target zone
-            self._in_target_zone = True
-            # Count rep if we came from outside
-            if self._went_below_target or self._went_above_target:
-                self._reps += 1
-                self._went_below_target = False
-                self._went_above_target = False
-                print(f"[Rep] Count: {self._reps}")
+        # If outside target zone, update where we are
+        if not in_zone:
+            if self._in_target_zone:
+                # Just EXITED the target zone
+                self._in_target_zone = False
+                
+                # If we came from below the target zone, and exited back below (Full Rep)
+                if self._went_below_target and below:
+                    self._reps += 1
+                    self._went_below_target = False
+                    self._went_above_target = False
+                    print(f"[Rep] Count: {self._reps} (Full rep completed)")
+                # OR If we came from above the target zone, and exited back above (Full Rep)
+                elif self._went_above_target and above:
+                    self._reps += 1
+                    self._went_below_target = False
+                    self._went_above_target = False
+                    print(f"[Rep] Count: {self._reps} (Full rep completed)")
+            else:
+                # Track our origin point before entering the zone
+                if below:
+                    self._went_below_target = True
+                    self._went_above_target = False
+                elif above:
+                    self._went_above_target = True
+                    self._went_below_target = False
 
-        elif not in_zone:
-            self._in_target_zone = False
-            if below:
-                self._went_below_target = True
-            elif above:
-                self._went_above_target = True
+        elif in_zone and not self._in_target_zone:
+            # Just ENTERED target zone
+            self._in_target_zone = True
 
     # ─── State & Persistence ─────────────────────────────────────────────────
 

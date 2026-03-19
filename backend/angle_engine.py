@@ -119,12 +119,18 @@ def compute_joint_angle(
         a = [lm_a["x"], lm_a["y"], lm_a["z"]]
         b = [lm_v["x"], lm_v["y"], lm_v["z"]]
         c = [lm_b["x"], lm_b["y"], lm_b["z"]]
-        return get_3d_angle(a, b, c)
+        angle = get_3d_angle(a, b, c)
     else:
         a = [lm_a["x"], lm_a["y"]]
         b = [lm_v["x"], lm_v["y"]]
         c = [lm_b["x"], lm_b["y"]]
-        return calculate_angle(a, b, c)
+        angle = calculate_angle(a, b, c)
+
+    # Offset neck joints to report 0 degrees when upright (instead of 180)
+    if "neck" in joint_name.lower():
+        angle = round(abs(180.0 - angle), 2)
+
+    return angle
 
 
 def compute_all_angles(
