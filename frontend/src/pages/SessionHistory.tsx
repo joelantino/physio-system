@@ -54,9 +54,10 @@ const SessionHistory: React.FC = () => {
                     <table className="data-table">
                         <thead>
                             <tr>
+                                <th>Patient</th>
                                 <th>Exercise</th>
                                 <th>Joint</th>
-                                <th>Date</th>
+                                <th>Date & Time</th>
                                 <th>Duration</th>
                                 <th>Reps</th>
                                 <th>Avg Angle</th>
@@ -66,6 +67,9 @@ const SessionHistory: React.FC = () => {
                         <tbody>
                             {sessions.map((s: any) => (
                                 <tr key={s.session_id}>
+                                    <td style={{ color: 'var(--accent-blue)', fontWeight: 700, textTransform: 'capitalize' }}>
+                                        {s.username}
+                                    </td>
                                     <td style={{ fontWeight: 600, color: 'var(--text-primary)' }}>{s.exercise_name}</td>
                                     <td style={{ fontFamily: 'JetBrains Mono', fontSize: '0.8rem' }}>
                                         {s.joint?.replace(/_/g, ' ')}
