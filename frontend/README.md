@@ -1,73 +1,76 @@
-# React + TypeScript + Vite
+# 🏥 PhysioAI — Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the strictly typed **React + TypeScript + Vite** frontend for the **PhysioAI** real-time physiotherapy system. It provides the user interface for both patients and physiotherapists to interact with the system.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## ✨ Features & Full Working
 
-## React Compiler
+The frontend is specifically designed to consume the Fast API real-time telemetry from the backend (video stream + JSON telemetry) and present it in an intuitive, responsive dashboard.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 1. User View (Patient Interface)
+- **Live Feed Rendering:** Embeds the MJPEG camera stream from the backend showing the real-time wireframe overlay.
+- **Dynamic Angle Gauge:** An SVG-based localized visualizer (`AngleGauge.tsx`) that animates to show current joint angle progress vs. target angle.
+- **Real-Time Feedback Banner:** Polls the backend for real-time corrective instructions (e.g., "Increase movement", "Hold it!") and color-codes the UI to guide the patient. 
 
-## Expanding the ESLint configuration
+### 2. Physio Dashboard (Clinical Interface)
+- **Exercise Configuration:** Allows physiotherapists to flexibly configure session parameters: target joints, expected angles, and forgiveness tolerances.
+- **Built-in Templates:** Physiotherapists can quickly initialize standard templates (e.g., Knee Flexion, Shoulder Abduction).
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### 3. Session History
+- **Analytics & Records:** Consumes historical session logs saved by the backend to review patient performance, completed repetitions, and mean accuracy.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 🚀 How to Run
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Prerequisites
+- [Node.js](https://nodejs.org/) (v16 or higher is recommended)
+- The backend should ideally be running for full capability (defaults to `http://localhost:8000`).
+
+### Proceed with Installation
+Open a terminal in the `frontend` folder and run:
+```bash
+# 1. Install dependencies
+npm install
+
+# 2. Start the development server
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Accessing the App
+Once started, Vite will host the application at:
+**`http://localhost:5173`**
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+*(Note: The `run_frontend.bat` script at the root of the project can also be used to launch the frontend server on Windows environments automatically.)*
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+---
+
+## 📁 System Architecture (Frontend)
+
 ```
+frontend/
+├── src/
+│   ├── pages/
+│   │   ├── UserView.tsx          # Patient live exercise view
+│   │   ├── PhysioDashboard.tsx   # Physio exercise configuration
+│   │   └── SessionHistory.tsx    # Past session records
+│   ├── components/
+│   │   ├── LiveFeed.tsx          # MJPEG camera stream embed
+│   │   ├── AngleGauge.tsx        # Animated SVG arc for joint angles
+│   │   ├── FeedbackBanner.tsx    # UI element for live tracking
+│   │   └── SessionSummaryModal.tsx # Post-workout popup
+│   ├── api.ts                    # Backend integration (Axios client)
+│   ├── App.tsx                   # Core layout & React Router
+│   └── index.css                 # Global styling / design system
+├── package.json
+└── vite.config.ts
+```
+
+## 🛠️ Tech Stack
+- **Framework:** React 18
+- **Language:** TypeScript
+- **Build Tool:** Vite
+- **Styling:** CSS (`index.css`)
+- **Routing:** React Router DOM
+- **HTTP Client:** Axios

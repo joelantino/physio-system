@@ -18,11 +18,13 @@ A production-level, modular, real-time physiotherapy system using **MediaPipe Ho
 - Node.js 18+
 - Webcam connected
 
-### 1. Start the Backend
+### 1. Setup & Start the Backend
 ```bash
-# Double-click run_backend.bat
-# OR run manually:
+# Install dependencies
 cd backend
+pip install -r requirements.txt
+
+# Run the server (or double-click run_backend.bat)
 python -m uvicorn main:app --host 0.0.0.0 --port 8000 --reload
 ```
 
@@ -30,11 +32,13 @@ Backend starts at: `http://localhost:8000`
 - 📖 API Docs: `http://localhost:8000/docs`
 - 📹 Video Stream: `http://localhost:8000/stream`
 
-### 2. Start the Frontend
+### 2. Setup & Start the Frontend
 ```bash
-# Double-click run_frontend.bat
-# OR run manually:
+# Install dependencies
 cd frontend
+npm install
+
+# Run the development server (or double-click run_frontend.bat)
 npm run dev
 ```
 
