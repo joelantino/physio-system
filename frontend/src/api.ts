@@ -100,7 +100,8 @@ export const configureExercise = (config: ExerciseConfig) => api.post('/exercise
 
 export const loadTemplate = (templateId: string) => api.post(`/exercise/load-template/${templateId}`);
 
-export const startSession = (exerciseId?: string) => api.post('/session/start', { exercise_id: exerciseId });
+export const startSession = (username: string = 'guest', exerciseId?: string) =>
+  api.post('/session/start', { username, exercise_id: exerciseId });
 
 export const stopSession = () => api.post<{ summary: SessionSummary }>('/session/stop');
 

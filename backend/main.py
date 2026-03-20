@@ -70,6 +70,7 @@ class ExerciseConfigRequest(BaseModel):
 
 
 class SessionStartRequest(BaseModel):
+    username: str = "guest"
     exercise_id: Optional[str] = None  # Template or custom exercise ID
     custom_config: Optional[ExerciseConfigRequest] = None
 
@@ -367,13 +368,13 @@ async def start_session(request: SessionStartRequest):
             detail="No exercise configured. Please configure an exercise first."
         )
 
-    session_id = session_mgr.start_session(config)
+    session_id = session_mgr.start_session(config, request.username)
     return {
         "success": True,
         "session_id": session_id,
         "exercise": config.name,
         "joint": config.joint,
-        "message": f"Session started for '{config.name}'"
+        "message": f"Session started for {request.username} — {config.name}"
     }
 
 

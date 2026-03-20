@@ -26,6 +26,7 @@ const UserView: React.FC = () => {
     const [showSummary, setShowSummary] = useState(false);
     const [angleHistory, setAngleHistory] = useState<{ t: number; angle: number }[]>([]);
     const [backendOk, setBackendOk] = useState(true);
+    const [username, setUsername] = useState<string>(localStorage.getItem('physio_user') || 'guest');
     const [startError, setStartError] = useState('');
 
     const pollRef = useRef<ReturnType<typeof setInterval> | undefined>(undefined);
@@ -58,8 +59,9 @@ const UserView: React.FC = () => {
 
     const handleStart = async () => {
         setStartError('');
+        localStorage.setItem('physio_user', username);
         try {
-            await startSession();
+            await startSession(username);
             setSessionActive(true);
             setAngleHistory([]);
             counterRef.current = 0;
@@ -196,6 +198,19 @@ const UserView: React.FC = () => {
                                     ACTIVE
                                 </span>
                             )}
+                        </div>
+
+                        {/* User Identity */}
+                        <div style={{ marginBottom: '1rem', padding: '0.875rem', background: 'rgba(255,255,255,0.03)', borderRadius: 'var(--radius-sm)', border: '1px solid rgba(255,255,255,0.06)' }}>
+                            <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginBottom: 6, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>👤 Patient Profile</div>
+                            <input
+                                className="form-input"
+                                placeholder="Enter patient name..."
+                                value={username}
+                                onChange={e => setUsername(e.target.value)}
+                                disabled={sessionActive}
+                                style={{ background: sessionActive ? 'transparent' : undefined, border: sessionActive ? 'none' : undefined, paddingLeft: sessionActive ? 0 : undefined, fontWeight: 700, color: 'var(--accent-blue)' }}
+                            />
                         </div>
 
                         {startError && (

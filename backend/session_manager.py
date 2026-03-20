@@ -30,6 +30,7 @@ class AngleRecord:
 
 @dataclass
 class SessionSummary:
+    username: str
     session_id: str
     exercise_name: str
     joint: str
@@ -71,6 +72,7 @@ class SessionManager:
 
     def __init__(self):
         self._active: bool = False
+        self._username: str = "guest"
         self._session_id: Optional[str] = None
         self._config: Optional[ExerciseConfig] = None
         self._start_time: float = 0.0
@@ -80,22 +82,19 @@ class SessionManager:
         self._total_hold_time: float = 0.0
         
         # Rep detection state machine
-        # A rep: goes OUT of target, then BACK IN (or vice versa, depending on exercise)
         self._in_target_zone: bool = False
-        self._went_below_target: bool = False  # Passed through lower threshold
-        self._went_above_target: bool = False  # Passed through upper threshold
-        self._rep_direction: Optional[str] = None  # "increase" or "decrease"
+        self._went_below_target: bool = False
+        self._went_above_target: bool = False
+        self._rep_direction: Optional[str] = None
 
     # ─── Session Control ─────────────────────────────────────────────────────
 
-    def start_session(self, config: ExerciseConfig) -> str:
+    def start_session(self, config: ExerciseConfig, username: str = "guest") -> str:
         """
         Begin a new session.
-        
-        Returns:
-            session_id
         """
         self._session_id = str(uuid.uuid4())
+        self._username = username.strip().lower() or "guest"
         self._config = config
         self._start_time = time.time()
         self._angle_history = []
@@ -108,15 +107,12 @@ class SessionManager:
         self._rep_direction = None
         self._active = True
 
-        print(f"[Session] Started: {self._session_id} | Exercise: {config.name}")
+        print(f"[Session] Started: {self._session_id} | User: {self._username} | Exercise: {config.name}")
         return self._session_id
 
     def stop_session(self) -> Optional[SessionSummary]:
         """
         End the session and generate summary.
-        
-        Returns:
-            SessionSummary or None if no active session
         """
         if not self._active or not self._config:
             return None
@@ -131,6 +127,7 @@ class SessionManager:
         avg_angle = round(sum(angles) / len(angles), 2) if angles else None
         
         summary = SessionSummary(
+            username=self._username,
             session_id=self._session_id,
             exercise_name=self._config.name,
             joint=self._config.joint,
@@ -153,8 +150,8 @@ class SessionManager:
         # Reset state
         self._active = False
         print(
-            f"[Session] Stopped: {self._session_id} | "
-            f"Reps: {self._reps} | Avg: {avg_angle}° | Duration: {duration:.1f}s"
+            f"[Session] Stopped for {self._username}: {self._session_id} | "
+            f"Reps: {self._reps} | Avg: {avg_angle}°"
         )
 
         return summary
@@ -268,33 +265,63 @@ class SessionManager:
     def get_session_id(self) -> Optional[str]:
         return self._session_id
 
+    def _get_next_session_number(self, username: str) -> int:
+        """Find the next available session number for a given user."""
+        pattern = f"{username}_session_*.json"
+        existing_files = list(SESSIONS_DIR.glob(pattern))
+        if not existing_files:
+            return 1
+            
+        numbers = []
+        for p in existing_files:
+            try:
+                # Extract number from 'username_session_X.json'
+                num_part = p.stem.split("_")[-1]
+                numbers.append(int(num_part))
+            except (ValueError, IndexError):
+                continue
+                
+        return max(numbers) + 1 if numbers else 1
+
     def _save_session(self, summary: SessionSummary):
-        """Persist session summary JSON to disk."""
-        path = SESSIONS_DIR / f"{summary.session_id}.json"
+        """Persist session summary JSON to disk with username_session_N format."""
+        num = self._get_next_session_number(summary.username)
+        filename = f"{summary.username}_session_{num}.json"
+        path = SESSIONS_DIR / filename
+        
         with open(path, "w") as f:
             json.dump(summary.to_dict(), f, indent=2)
         print(f"[Session] Saved to: {path}")
 
     @staticmethod
     def load_session(session_id: str) -> Optional[dict]:
-        """Load a historical session by ID."""
-        path = SESSIONS_DIR / f"{session_id}.json"
-        if not path.exists():
-            return None
-        with open(path, "r") as f:
-            return json.load(f)
+        """Load a historical session by ID (scans all files)."""
+        for p in SESSIONS_DIR.glob("*.json"):
+            try:
+                with open(p, "r") as f:
+                    data = json.load(f)
+                    if data.get("session_id") == session_id:
+                        return data
+            except Exception:
+                continue
+        return None
 
     @staticmethod
     def list_sessions() -> List[dict]:
-        """List all saved sessions (summary only, no angle history)."""
+        """List all saved sessions with username context."""
         sessions = []
-        for p in sorted(SESSIONS_DIR.glob("*.json"), reverse=True):
+        # Sort by modification time (newest first)
+        all_files = sorted(SESSIONS_DIR.glob("*.json"), key=lambda p: p.stat().st_mtime, reverse=True)
+        
+        for p in all_files:
             try:
                 with open(p) as f:
                     data = json.load(f)
                 # Return lightweight summary
                 sessions.append({
                     "session_id": data.get("session_id"),
+                    "filename": p.name,
+                    "username": data.get("username", "guest"),
                     "exercise_name": data.get("exercise_name"),
                     "joint": data.get("joint"),
                     "total_reps": data.get("total_reps"),
