@@ -15,6 +15,7 @@ const JOINT_LABELS: Record<string, string> = {
     left_ankle: 'Left Ankle', right_ankle: 'Right Ankle',
     left_wrist: 'Left Wrist', right_wrist: 'Right Wrist',
     neck_tilt: 'Neck Tilt',
+    lateral_head_tilt: 'Head Tilt (Lateral)',
 };
 
 const DIFFICULTIES: Record<string, string> = {

@@ -9,7 +9,7 @@ import mediapipe as mp
 import numpy as np
 import threading
 import time
-from typing import Optional, Dict, List
+from typing import Optional, Dict, List, Any
 
 # ─── MediaPipe Setup ────────────────────────────────────────────────────────
 mp_holistic = mp.solutions.holistic
@@ -54,11 +54,12 @@ class PoseEngine:
         self._detection_active: bool = False
 
         # Highlight joints (for feedback visualization)
-        self._highlight_joints: List[int] = []
+        self._highlight_joints: List[Any] = []
         self._highlight_color: tuple = (0, 0, 255)
         self._highlight_label: str = ""
         self._feedback_msg: str = ""
         self._feedback_color: tuple = (255, 255, 255)
+        self._derived_landmarks: Dict[str, Dict[str, float]] = {}
 
     # ─── Public Interface ────────────────────────────────────────────────────
 
@@ -94,8 +95,13 @@ class PoseEngine:
         with self._lock:
             return self._detection_active
 
-    def set_highlight_joints(self, joint_indices: List[int], color: tuple = (0, 0, 255), label: str = ""):
-        """Highlight specific landmark indices in a given color and draw text (for feedback)."""
+    def set_derived_landmarks(self, derived: Dict[str, Dict[str, float]]):
+        """Pass derived joint coordinates (midpoints) for HUD drawing."""
+        with self._lock:
+            self._derived_landmarks = derived
+
+    def set_highlight_joints(self, joint_indices: List[Any], color: tuple = (0, 0, 255), label: str = ""):
+        """Highlight specific landmark indices (int or str) and draw text."""
         with self._lock:
             self._highlight_joints = joint_indices
             self._highlight_color = color
@@ -207,11 +213,21 @@ class PoseEngine:
                         highlight_joints = list(self._highlight_joints)
                         highlight_color = self._highlight_color
                         highlight_label = self._highlight_label
+                        
+                        # Combine standard and derived (virtual) joints for drawing
+                        pool = {**landmarks} # Standard (ints)
+                        for name, coords in self._derived_landmarks.items():
+                            if coords:
+                                # Prepare pixel coords for derived joints
+                                lm_pool = coords.copy()
+                                lm_pool['x_px'] = int((1.0 - coords['x']) * w)
+                                lm_pool['y_px'] = int(coords['y'] * h)
+                                pool[name] = lm_pool # Virtual (strings)
 
                     for i, idx in enumerate(highlight_joints):
-                        if idx in landmarks:
+                        if idx in pool:
                             # Use the already-mirrored x_px
-                            cx, cy = landmarks[idx]['x_px'], landmarks[idx]['y_px']
+                            cx, cy = pool[idx]['x_px'], pool[idx]['y_px']
                             cv2.circle(annotated, (cx, cy), 12, highlight_color, -1)
                             cv2.circle(annotated, (cx, cy), 14, (255, 255, 255), 2)
                             if highlight_label and i == 1:

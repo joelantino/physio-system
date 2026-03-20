@@ -106,6 +106,16 @@
       "label": "Neck",
       "description": "Midpoint of left and right shoulders"
     },
+    "head_center": {
+      "derived": true,
+      "type": "midpoint",
+      "points": [
+        7,
+        8
+      ],
+      "label": "Head Center",
+      "description": "Midpoint of left and right ears"
+    },
     "hip_center": {
       "derived": true,
       "type": "midpoint",
@@ -123,6 +133,14 @@
       "label": "Neck Tilt",
       "derived": true,
       "description": "Head/Neck tilt (Nose -> Neck Midpoint -> Hip Center)"
+    },
+    "lateral_head_tilt": {
+      "point_a": "head_center",
+      "vertex": "neck",
+      "point_b": "hip_center",
+      "label": "Head Tilt (Lateral)",
+      "derived": true,
+      "description": "Lateral neck lean (Ear Midpoint -> Neck -> Hip Center)"
     }
   },
   "landmark_names": {
