@@ -21,7 +21,10 @@ from pydantic import BaseModel, Field
 sys.path.insert(0, str(Path(__file__).parent))
 
 from pose_engine import get_engine
-from angle_engine import compute_all_angles, get_all_joint_names, compute_joint_angle
+from angle_engine import (
+    compute_all_angles, get_all_joint_names, compute_joint_angle,
+    compute_derived_joints
+)
 from feedback_engine import (
     get_feedback_engine, ExerciseConfig, FeedbackStatus
 )
@@ -172,12 +175,16 @@ async def get_feedback():
 
     # Get feedback
     feedback = fb_engine.evaluate_batch(angles)
+    
+    # Calculate derived landmarks for virtual highlighting (Neck Tilt midpoints)
+    derived = compute_derived_joints(landmarks)
+    engine.set_derived_landmarks(derived)
 
     # Update session if active
     if session_mgr.is_active():
         config = fb_engine.get_config()
         current_angle = angles.get(config.joint) if config else None
-        session_state = session_mgr.update(current_angle, feedback.status)
+        session_state = session_mgr.update(current_angle, feedback.status, feedback.severity.value)
 
         # Update pose engine highlights
         if config and feedback.status not in [FeedbackStatus.IDLE, FeedbackStatus.NO_DETECTION]:

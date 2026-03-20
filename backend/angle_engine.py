@@ -126,8 +126,8 @@ def compute_joint_angle(
         c = [lm_b["x"], lm_b["y"]]
         angle = calculate_angle(a, b, c)
 
-    # Offset neck joints to report 0 degrees when upright (instead of 180)
-    if "neck" in joint_name.lower():
+    # Offset vertical joints (Neck, Tilts) to report 0 degrees when upright (instead of 180)
+    if "neck" in joint_name.lower() or "tilt" in joint_name.lower():
         angle = round(abs(180.0 - angle), 2)
 
     return angle
